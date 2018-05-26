@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+        <modelVersion>4.0.0</modelVersion>
+
+        <groupId>com.pablozanetti.performance</groupId>
+        <artifactId>gatling-maven</artifactId>
+        <version>2.2.4</version>
+        <packaging>jar</packaging>
+
+
+        <properties>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <gatling.version>2.2.4</gatling.version>
+                <gatling-maven-plugin.version>2.2.4</gatling-maven-plugin.version>
+                <conjure.version>1.1-SNAPSHOT</conjure.version>
+		        <scala.version>2.11.6</scala.version>
+                <java-version>1.8</java-version>
+        </properties>
+        <profiles>
+            <profile>
+                <id>core</id>
+            </profile>
+        </profiles>
+
+        <dependencies>
+
+            <dependency>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-core</artifactId>
+                <version>${gatling.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-app</artifactId>
+                <version>${gatling.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-http</artifactId>
+                <version>${gatling.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.joda</groupId>
+                <artifactId>joda-convert</artifactId>
+                <version>1.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.gatling.highcharts</groupId>
+                <artifactId>gatling-charts-highcharts</artifactId>
+                <version>${gatling.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-compiler</artifactId>
+                <version>2.11.6</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>io.gatling</groupId>
+                    <artifactId>gatling-maven-plugin</artifactId>
+                    <version>${gatling-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <!-- <phase>test</phase> -->
+                            <goals>
+                                <goal>execute</goal>
+                            </goals>
+                            <configuration>
+
+                                <!-- Default values -->
+                                <!--<configDir>src/test/resources</configDir>
+                                <dataFolder>src/test/resources/data</dataFolder>
+                                <resultsFolder>target/gatling/results</resultsFolder>
+                                <requestBodiesFolder>src/test/resources/request-bodies</requestBodiesFolder>
+                                <simulationsFolder>src/test/scala</simulationsFolder>
+                                <includes>
+                                        <include>**/*.scala</include>
+                                </includes>-->
+                                <!--<excludes>
+                                    <exclude>advanced/*.scala</exclude>
+                                </excludes>-->
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+</project>
